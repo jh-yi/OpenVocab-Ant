@@ -378,52 +378,77 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Results grid -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/tab1.png" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          Closed-set on Ego4D. Best among sub-1B methods, and on par with models using 7B or more parameters (greyed).
-        </h2>
+      <div class="results-grid">
+        <div class="item">
+          <img src="static/images/tab1.png" alt="First research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Closed-set on Ego4D. Best among sub-1B methods, and on par with models using 7B or more parameters (greyed).
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/tab2.png" alt="Second research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Open-vocabulary on EK100 and EGTEA+. Trained on Ego4D only, no fine-tuning. We beat every baseline at both backbone sizes.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/tab5.png" alt="Third research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Horizon-specific queries with shared heads win. Separate heads hurt open-vocabulary transfer.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/fig5.png" alt="Fourth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Two decoder layers are optimal. No decoder is much worse, and deeper degrades.
+          </h2>
+        </div>
+        <div class="item">
+          <img src="static/images/fig7.png" alt="Fifth research result visualization" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Cross-attention of the 20 horizon queries, t-SNE projected. Queries trace a path from near to distant future. This ordering is never supervised.
+          </h2>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/tab2.png" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Open-vocabulary on EK100 and EGTEA+. Trained on Ego4D only, no fine-tuning. We beat every baseline at both backbone sizes.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/tab5.png" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Horizon-specific queries with shared heads win. Separate heads hurt open-vocabulary transfer.
-       </h2>
-     </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/fig5.png" alt="Fourth research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Two decoder layers are optimal. No decoder is much worse, and deeper degrades.
-       </h2>
-     </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/fig7.png" alt="Fifth research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Cross-attention of the 20 horizon queries, t-SNE projected. Queries trace a path from near to distant future. This ordering is never supervised.
-       </h2>
-     </div>
+    </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
+<!-- End results grid -->
+
+<style>
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+  align-items: start;
+}
+.results-grid .item img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.results-grid .item h2.subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+/* Center the odd one out (5th item) on its own row */
+.results-grid .item:last-child {
+  grid-column: 1 / -1;
+  max-width: 50%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .results-grid { grid-template-columns: 1fr; }
+  .results-grid .item:last-child { max-width: 100%; }
+}
+</style>
 
 
 
